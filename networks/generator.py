@@ -1,5 +1,7 @@
 # Copyright (c) 2023, NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
 #
+#
+#
 # NVIDIA CORPORATION and its licensors retain all intellectual property
 # and proprietary rights in and to this software, related documentation
 # and any modifications thereto.  Any use, reproduction, disclosure or
@@ -17,6 +19,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+
 from torch.nn.parameter import Parameter
 
 from torch_utils import misc

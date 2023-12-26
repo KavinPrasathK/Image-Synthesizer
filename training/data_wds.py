@@ -1,5 +1,7 @@
 # Copyright (c) 2023, NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
 #
+#
+#
 # NVIDIA CORPORATION and its licensors retain all intellectual property
 # and proprietary rights in and to this software, related documentation
 # and any modifications thereto.  Any use, reproduction, disclosure or
@@ -12,6 +14,7 @@ import os
 import numpy as np
 import logging
 import PIL.Image
+
 from functools import partial
 from pathlib import Path
 from glob import glob

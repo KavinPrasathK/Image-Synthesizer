@@ -1,5 +1,7 @@
 # Copyright (c) 2023, NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
 #
+#
+#
 # NVIDIA CORPORATION and its licensors retain all intellectual property
 # and proprietary rights in and to this software, related documentation
 # and any modifications thereto.  Any use, reproduction, disclosure or
@@ -14,6 +16,7 @@ Train a GAN using the techniques described in the paper
 import os
 import re
 import json
+
 from pathlib import Path
 from typing import Union
 from glob import glob

@@ -1,5 +1,7 @@
 # Copyright (c) 2023, NVIDIA CORPORATION & AFFILIATES.  All rights reserved.
 #
+#
+#
 # NVIDIA CORPORATION and its licensors retain all intellectual property
 # and proprietary rights in and to this software, related documentation
 # and any modifications thereto.  Any use, reproduction, disclosure or
@@ -10,9 +12,12 @@
 
 import torch
 import torch.nn as nn
+
 from torchvision.transforms import Normalize
+
 import torch.nn.functional as F
 import open_clip
+
 from timm.data import OPENAI_CLIP_MEAN, OPENAI_CLIP_STD
 
 
