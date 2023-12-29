@@ -1,11 +1,7 @@
-<img src="docs/banner.png">
 
-#### [[Project]](https://sites.google.com/view/stylegan-t/)    [[PDF]](https://arxiv.org/abs/2301.09515)    [[Video]](https://www.youtube.com/watch?v=MMj8OTOUIok) 
-This repository contains the **training code** for our paper "StyleGAN-T: Unlocking the Power of GANs for Fast Large-Scale Text-to-Image Synthesis". **We do not provide pretrained checkpoints.**
+Requirements 
 
-by [Axel Sauer](https://axelsauer.com/), [Tero Karras](https://research.nvidia.com/person/tero-karras), [Samuli Laine](https://research.nvidia.com/person/samuli-laine), [Andreas Geiger](https://www.cvlibs.net/), [Timo Aila](https://research.nvidia.com/person/timo-aila)
 
-## Requirements ##
 - Use the following commands with Miniconda3 to create and activate your environment:
   ```
   conda create --name sgt python=3.9
@@ -14,14 +10,13 @@ by [Axel Sauer](https://axelsauer.com/), [Tero Karras](https://research.nvidia.c
   pip install -r requirements.txt
   ```
 - GCC 7 or later compilers. The recommended GCC version depends on your CUDA version; see for example, CUDA 11.4 system requirements.
-- If you run into problems when setting up the custom CUDA kernels, we refer to the [Troubleshooting docs](https://github.com/NVlabs/stylegan3/blob/main/docs/troubleshooting.md#why-is-cuda-toolkit-installation-necessary) of the StyleGAN3 repo.
 
 
-## Data Preparation ##
+Data Preparation
 
 StyleGAN-T can be trained on unconditional and conditional datasets. For small-scale experiments, we recommend zip datasets. When training on datasets with more than 1 million images, we recommend using webdatasets.
 
-### Zip Dataset
+- Zip Dataset
 Zip-Datasets are stored in the same format as in the previous iterations of [StyleGAN](https://github.com/NVlabs/stylegan3): uncompressed ZIP archives containing uncompressed PNG files and a metadata file `dataset.json` for labels. Custom datasets can be created from a folder containing images.
 
 
@@ -45,7 +40,7 @@ python dataset_tool.py --source downloads/captions_val2014.json \
   --dest data/coco_val256.zip --resolution 256x256 --transform center-crop
 ```
 
-It is recommend to prepare the dataset zip at the highest possible resolution, e.g. for FFHQ, the zip should contain images with 1024x1024 pixels. When training lower-resolution models, the training script can downsample the images on the fly. 
+It is recommended to prepare the dataset zip at the highest possible resolution, e.g. for FFHQ, the zip should contain images with 1024x1024 pixels. When training lower-resolution models, the training script can downsample the images on the fly. 
 
 ### WebDataset
 For preparing webdatasets, we used the excellent [img2dataset](https://github.com/rom1504/img2dataset) tool. Documentation for downloading different datasets can be found [here](https://github.com/rom1504/img2dataset/tree/main/dataset_examples). For our experiments, we used data from the following sources: [CC3M](https://ai.google.com/research/ConceptualCaptions/download), [CC12M](https://github.com/google-research-datasets/conceptual-12m), [YFFC100m](https://huggingface.co/datasets/dalle-mini/YFCC100M_OpenAI_subset), [Redcaps](https://huggingface.co/datasets/red_caps), [LAION-aesthetic-6plus](https://huggingface.co/datasets/ChristophSchuhmann/improved_aesthetics_6plus).
@@ -126,27 +121,3 @@ Metric computation is only supported on zip datasets, not webdatasets. The zero-
 To see the available metrics, run ```python calc_metrics.py --help```
 
 
-## License ##
-
-Copyright &copy; 2023, NVIDIA Corporation. All rights reserved.
-
-This work is made available under the [Nvidia Source Code License](https://nvlabs.github.io/stylegan2-ada-pytorch/license.html).
-
-Excempt are the files ```training/diffaug.py``` and ```networks/vit_utils.py``` which are partially or fully based on third party github repositories. These two files are copyright their respective authors and under their respective licenses; we include the original license and link to the source at the beginning of the files.
-
-## Development ##
-
-This is a research reference implementation and is treated as a one-time code drop. As such, we do not accept outside code contributions in the form of pull requests.
-
-## Citation ##
-
-```bibtex
-@InProceedings{Sauer2023ARXIV,
-  author    = {Axel Sauer and Tero Karras and Samuli Laine and Andreas Geiger and Timo Aila},
-  title     = {{StyleGAN-T}: Unlocking the Power of {GANs} for Fast Large-Scale Text-to-Image Synthesis},
-  journal   = {{arXiv.org}},
-  volume    = {abs/2301.09515},
-  year      = {2023},
-  url       = {https://arxiv.org/abs/2301.09515},
-}
-```
